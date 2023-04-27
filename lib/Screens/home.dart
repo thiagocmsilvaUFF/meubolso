@@ -32,45 +32,48 @@ class _HomeState extends State<Home> {
         child: ValueListenableBuilder(
           valueListenable: box.listenable(),
           builder: (context, value, child) {
-          return CustomScrollView(
-            slivers: [
-              SliverToBoxAdapter(
-                child: SizedBox(height: 340,child: _head()),
-              ),
-              SliverToBoxAdapter(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Histórico',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 19,
-                          color: Colors.black,
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 25),
+            child: CustomScrollView(
+              slivers: [
+                SliverToBoxAdapter(
+                  child: SizedBox(height: 340,child: _head()),
+                ),
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Histórico',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 19,
+                            color: Colors.black,
+                          ),
                         ),
-                      ),
-                      Text(
-                        'Ver tudo',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 15,
-                          color: Colors.grey,
+                        Text(
+                          'Ver tudo',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15,
+                            color: Colors.grey,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              SliverList(delegate: SliverChildBuilderDelegate(
-                (context, index) {
-                  history = box.values.toList()[index];
-                  return getList(history, index);
-                },
-                childCount: box.length,
-              ))
-            ],
+                SliverList(delegate: SliverChildBuilderDelegate(
+                  (context, index) {
+                    history = box.values.toList()[index];
+                    return getList(history, index);
+                  },
+                  childCount: box.length,
+                ))
+              ],
+            ),
           );
           }
         )
