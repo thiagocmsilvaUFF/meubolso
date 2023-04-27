@@ -316,7 +316,7 @@ class _Add_ScreenState extends State<Add_Screen> {
                             ))
                             .toList(),
                       hint: Text(
-                        'Name',
+                        'Categoria',
                         style: TextStyle(
                           color: Colors.grey
                         ),

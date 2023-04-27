@@ -12,8 +12,8 @@ class Statistics extends StatefulWidget{
 }
 
 class _StatisticsState extends State<Statistics> {
-  List day = ['Dia', 'Semana', 'Mês', 'Ano'];
-  List f = [today(), week(), month(), year()];
+  List day = ['Dia', 'Semana', 'Mês'];
+  List f = [today(), week(), month()];
   final List<String> weekday = [
     'Segunda-feira',
     'Terça-feira',
@@ -62,7 +62,7 @@ class _StatisticsState extends State<Statistics> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       ...List.generate(
-                        4,
+                        3,
                         (index) {
                           return GestureDetector(
                             onTap: () {
@@ -140,7 +140,7 @@ class _StatisticsState extends State<Statistics> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Maiores ganhos e despesas',
+                        'Histórico durante o período',
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 16,
