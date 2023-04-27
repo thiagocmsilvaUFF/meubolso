@@ -67,7 +67,7 @@ class _ChartState extends State<Chart> {
               })
             ],
             xValueMapper: (SalesData sales, _) => sales.year,
-            yValueMapper: (SalesData sales, _) => sales.sales,
+            yValueMapper: (SalesData sales, _) => sales.sales*-1,
           )
         ],
       ),
