@@ -167,19 +167,11 @@ class _HomeState extends State<Home> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Boa tarde',
+                              'Meu bolso',
                               style: TextStyle(
                                 fontWeight: FontWeight.w500,
-                                fontSize: 16,
+                                fontSize: 40,
                                 color: Color.fromARGB(255, 224, 223, 223),
-                              ),
-                            ),
-                              Text(
-                              'Thiago Campos',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 20,
-                                color: Colors.white,
                               ),
                             ),
                           ],
