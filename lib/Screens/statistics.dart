@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meubolso/widgets/chart.dart';
 import 'package:meubolso/data/top.dart';
-import 'package:grouped_list/grouped_list.dart';
 import '../data/model/add_data.dart';
 import '../data/utility.dart';
 
@@ -159,7 +158,7 @@ class _StatisticsState extends State<Statistics> {
               ],
             ),
           ),
-          SliverList(
+    SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
                 return ListTile(

@@ -6,7 +6,7 @@ import '../data/utility.dart';
 
 class Chart extends StatefulWidget {
   int indexx;
-  Chart ({Key? key, required this.indexx}) : super(key: key);
+  Chart({Key? key, required this.indexx}) : super(key: key);
 
   @override
   State<Chart> createState() => _ChartState();
@@ -41,16 +41,16 @@ class _ChartState extends State<Chart> {
       default:
     }
     return Container(
-        width: double.infinity,
-        height: 300,
-        child: SfCartesianChart(
-          primaryXAxis: CategoryAxis(),
-          series: <SplineSeries<SalesData, String>>[
-            SplineSeries<SalesData, String>(
-              color: Color.fromARGB(255, 47, 125, 121),
-              width: 3,
-              dataSource: <SalesData>[
-                ...List.generate(time(a!, b ? true : false).length, (index) {
+      width: double.infinity,
+      height: 300,
+      child: SfCartesianChart(
+        primaryXAxis: CategoryAxis(),
+        series: <SplineSeries<SalesData, String>>[
+          SplineSeries<SalesData, String>(
+            color: Color.fromARGB(255, 47, 125, 121),
+            width: 3,
+            dataSource: <SalesData>[
+              ...List.generate(time(a!, b ? true : false).length, (index) {
                 return SalesData(
                     j
                         ? b
@@ -66,17 +66,17 @@ class _ChartState extends State<Chart> {
                                 time(a!, false)[index - 1]
                             : time(a!, false)[index]);
               })
-              ],
-              xValueMapper: (SalesData sales,_)=>sales.year,
-              yValueMapper: (SalesData sales,_)=>sales.sales,
-            )
-          ],
-        ),
+            ],
+            xValueMapper: (SalesData sales, _) => sales.year,
+            yValueMapper: (SalesData sales, _) => sales.sales,
+          )
+        ],
+      ),
     );
   }
 }
 
-class SalesData{
+class SalesData {
   SalesData(this.year, this.sales);
   final String year;
   final int sales;
