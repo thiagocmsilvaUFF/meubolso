@@ -161,33 +161,36 @@ class _StatisticsState extends State<Statistics> {
     SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
-                return ListTile(
-                  leading: ClipRRect(
-                  borderRadius: BorderRadius.circular(5),
-                  child: Image.asset('images/${a[index].name}.png',
-                   height: 40),
-                ),
-                title: Text(
-                  a[index].name,
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 25),
+                  child: ListTile(
+                    leading: ClipRRect(
+                    borderRadius: BorderRadius.circular(5),
+                    child: Image.asset('images/${a[index].name}.png',
+                     height: 40),
                   ),
-                ),
-                subtitle: Text(
-                  '${weekday[a[index].datetime.weekday - 1]}  ${a[index].datetime.day}/${a[index].datetime.month}/${a[index].datetime.year}',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600
+                  title: Text(
+                    a[index].name,
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600
+                    ),
                   ),
-                ),
-                trailing: Text(
-                  a[index].IN == 'Ganho' ? '+ R\$ ${a[index].amount}':'- R\$ ${a[index].amount}',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 19,
-                    color: a[index].IN == 'Ganho' ? Colors.green:Colors.red,
+                  subtitle: Text(
+                    '${weekday[a[index].datetime.weekday - 1]}  ${a[index].datetime.day}/${a[index].datetime.month}/${a[index].datetime.year}',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600
+                    ),
                   ),
-                ),
+                  trailing: Text(
+                    a[index].IN == 'Ganho' ? '+ R\$ ${a[index].amount}':'- R\$ ${a[index].amount}',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 19,
+                      color: a[index].IN == 'Ganho' ? Colors.green:Colors.red,
+                    ),
+                  ),
+                  ),
                 );
               },
               childCount: a.length,
