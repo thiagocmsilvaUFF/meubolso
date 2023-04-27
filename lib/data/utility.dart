@@ -1,5 +1,6 @@
 import 'package:hive/hive.dart';
 import 'package:meubolso/data/model/add_data.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 int totals = 0;
 
@@ -46,7 +47,10 @@ int expense(){
 
 List<Add_data> today() {
   List<Add_data> a = [];
-  var history2 = box.values.toList();
+  var history2 = box.values
+  .where((history2) => history2.IN == "Despesa")
+  .toList();
+  history2.sort((a, b) => a.datetime.compareTo(b.datetime));
   DateTime date = new DateTime.now();
   for (var i = 0; i < history2.length; i++) {
     if (history2[i].datetime.day == date.day) {
@@ -59,7 +63,10 @@ List<Add_data> today() {
 List<Add_data> week() {
   List<Add_data> a = [];
   DateTime date = new DateTime.now();
-  var history2 = box.values.toList();
+  var history2 = box.values
+  .where((history2) => history2.IN == "Despesa")
+  .toList();
+  history2.sort((a, b) => a.datetime.compareTo(b.datetime));
   for (var i = 0; i < history2.length; i++) {
     if (date.day - 7 <= history2[i].datetime.day &&
         history2[i].datetime.day <= date.day) {
@@ -71,7 +78,10 @@ List<Add_data> week() {
 
 List<Add_data> month() {
   List<Add_data> a = [];
-  var history2 = box.values.toList();
+  var history2 = box.values
+  .where((history2) => history2.IN == "Despesa")
+  .toList();
+  history2.sort((a, b) => a.datetime.compareTo(b.datetime));
   DateTime date = new DateTime.now();
   for (var i = 0; i < history2.length; i++) {
     if (history2[i].datetime.month == date.month) {
@@ -83,7 +93,10 @@ List<Add_data> month() {
 
 List<Add_data> year() {
   List<Add_data> a = [];
-  var history2 = box.values.toList();
+  var history2 = box.values
+  .where((history2) => history2.IN == "Despesa")
+  .toList();
+  history2.sort((a, b) => a.datetime.compareTo(b.datetime));
   DateTime date = new DateTime.now();
   for (var i = 0; i < history2.length; i++) {
     if (history2[i].datetime.year == date.year) {

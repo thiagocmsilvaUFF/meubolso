@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:meubolso/Screens/home.dart';
 import 'package:meubolso/data/model/add_data.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:meubolso/widgets/bottomnavigationbar.dart';
 
 class Add_Screen extends StatefulWidget {
   const Add_Screen({super.key});
@@ -89,7 +91,8 @@ class _Add_ScreenState extends State<Add_Screen> {
                   onTap: () {
                     var add = Add_data(selectedItemi!, amount_C.text, date, detail_C.text, selectedItem!);
                     box.add(add);
-                    Navigator.of(context).pop();
+                    Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Bottom()));
                   },
                   child: Container(
                     alignment: Alignment.center,

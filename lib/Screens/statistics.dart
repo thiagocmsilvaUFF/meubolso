@@ -140,7 +140,7 @@ class _StatisticsState extends State<Statistics> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Histórico durante o período',
+                        'Despesas durante o período',
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 16,
