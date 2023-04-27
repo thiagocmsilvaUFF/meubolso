@@ -1,6 +1,5 @@
 import 'dart:ffi';
 import 'package:hive_flutter/adapters.dart';
-import 'package:meubolso/data/listdata.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:meubolso/data/model/add_data.dart';
@@ -105,7 +104,7 @@ class _HomeState extends State<Home> {
                    height: 40),
                 ),
                 title: Text(
-                  history.name,
+                  '${history.name} (${history.detail})',
                   style: TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w600

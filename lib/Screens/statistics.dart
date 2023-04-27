@@ -169,7 +169,7 @@ class _StatisticsState extends State<Statistics> {
                      height: 40),
                   ),
                   title: Text(
-                    a[index].name,
+                    '${a[index].name} (${a[index].detail})',
                     style: TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.w600
