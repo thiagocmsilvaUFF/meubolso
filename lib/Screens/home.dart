@@ -3,6 +3,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:meubolso/data/model/add_data.dart';
+import 'package:meubolso/Screens/categories.dart';
 
 import '../data/utility.dart';
 
@@ -54,7 +55,7 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                         Text(
-                          'Ver tudo',
+                          '',
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 15,
@@ -103,7 +104,7 @@ class _HomeState extends State<Home> {
     return ListTile(
                 leading: ClipRRect(
                   borderRadius: BorderRadius.circular(5),
-                  child: Image.asset('images/${history.name}.png',
+                  child: history.IN == 'Ganho' ? Image.asset('images/Ganho.png', height: 40): Image.asset('images/Despesa.png',
                    height: 40),
                 ),
                 title: Text(
@@ -156,10 +157,16 @@ class _HomeState extends State<Home> {
                             height: 40,
                             width: 40,
                             color: Color.fromRGBO(250, 250, 250, 0.1),
-                            child: Icon(
-                              Icons.notifications_none_outlined,
-                              size: 30,
-                              color: Colors.white,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.of(context)
+                                .push(MaterialPageRoute(builder: (context) => Cat_Screen()));
+                              },
+                              child: Icon(
+                                Icons.settings,
+                                size: 30,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),

@@ -4,6 +4,8 @@ import 'package:meubolso/data/model/add_data.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:meubolso/widgets/bottomnavigationbar.dart';
 
+import '../data/databasecat.dart';
+
 class Add_Screen extends StatefulWidget {
   const Add_Screen({super.key});
 
@@ -13,6 +15,8 @@ class Add_Screen extends StatefulWidget {
 
 class _Add_ScreenState extends State<Add_Screen> {
   final box = Hive.box<Add_data>('data');
+  final _myBox = Hive.box('mybox');
+  CatDataBase db = CatDataBase();
   DateTime date = new DateTime.now();
   String? selectedItem;
   String? selectedItemi;
@@ -20,18 +24,13 @@ class _Add_ScreenState extends State<Add_Screen> {
   FocusNode dt = FocusNode();
   final TextEditingController amount_C = TextEditingController();
   FocusNode amount_ = FocusNode();
-  final List<String> _item = [
-    'Comida',
-    'Casa',
-    'Transporte',
-    'Outros'
-  ];
   final List<String> _itemi = [
     'Ganho',
     'Despesa'
   ];
   @override
   void initState() {
+      db.loadData();
     super.initState();
     dt.addListener(() {
       setState(() {});
@@ -283,16 +282,12 @@ class _Add_ScreenState extends State<Add_Screen> {
                         color: Color(0xffC5C5C5)
                       )
                     ),
-                    child: DropdownButton<String>(
+                    child: DropdownButton(
                       value: selectedItem,
-                      items: _item.map((e)=>DropdownMenuItem(
+                      items: db.CatList.map((e)=>DropdownMenuItem(
                         child: Container(
                           child: Row(
                             children: [
-                              Container(
-                                width: 40,
-                                child: Image.asset('images/${e}.png'),
-                              ),
                               SizedBox(width: 10),
                               Text(
                                 e,
@@ -306,13 +301,10 @@ class _Add_ScreenState extends State<Add_Screen> {
                         value: e,
                         ))
                         .toList(),
-                        selectedItemBuilder: (context) => _item
+                        selectedItemBuilder: (context) => db.CatList
                             .map((e) => Row(
                               children: [
-                                Container(
-                                  width: 42,
-                                  child: Image.asset('images/${e}.png'),
-                                ),
+                                
                                 SizedBox(width: 5),
                                 Text(e)
                               ],
@@ -329,7 +321,7 @@ class _Add_ScreenState extends State<Add_Screen> {
                       underline: Container(),
                       onChanged: ((value) {
                         setState(() {
-                          selectedItem = value!;
+                          selectedItem = value!.toString();
                         });
                       }),
                     ),
