@@ -165,8 +165,8 @@ class _StatisticsState extends State<Statistics> {
                   child: ListTile(
                     leading: ClipRRect(
                     borderRadius: BorderRadius.circular(5),
-                    child: Image.asset('images/${a[index].name}.png',
-                     height: 40),
+                    child: a[index].IN == 'Ganho' ? Image.asset('images/Ganho.png', height: 40): Image.asset('images/Despesa.png',
+                   height: 40),
                   ),
                   title: Text(
                     '${a[index].name} (${a[index].detail})',
